@@ -26,7 +26,7 @@ public static class EventController
         List<IEvent> filteredList = new();
         foreach(IEvent _event in defaultList)
         {
-            if(_event.sortValue[0] >= diceValue && _event.sortValue[1]<= diceValue)
+            if(diceValue >= _event.sortValue[0] && diceValue <= _event.sortValue[1])
             {
                 filteredList.Add(_event);
             }
