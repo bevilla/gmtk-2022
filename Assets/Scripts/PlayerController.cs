@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         transform.position += transform.forward * m_speed * Time.deltaTime;
         m_camera.transform.position = transform.position + new Vector3(0, 40, -32);
 
-        transform.localScale = Vector3.one * 4.0f;
+        transform.localScale = Vector3.one * 6.0f;
         m_cameraMinimap.Render();
         transform.localScale = Vector3.one;
         RenderTexture currentRenderTexture = RenderTexture.active;
