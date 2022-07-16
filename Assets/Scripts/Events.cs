@@ -7,6 +7,7 @@ public static class Events
     public static IEvent BarilOfRumFound()
     {
         IEvent value = new();
+        value.timer = float.PositiveInfinity;
         value.title = "Rum in sight! ";
         value.description = "An abbandoned baril full of rum was just fish out by your guys!";
         value.moral = 5;
@@ -31,6 +32,7 @@ public static class Events
         value.title = "You found a Castaway";
         value.description = "You just found a poor Castaway, gain a bonus of moral!";
         value.moral = 10;
+        value.timer = float.PositiveInfinity;
         value.sortValue = new int[2] { 4, 5 };
         return value;
     }
@@ -42,6 +44,7 @@ public static class Events
         value.title = "A Wreck!";
         value.description = "An old Wreck is in sight! you can get some good materials for your boat";
         value.pv = 10;
+        value.timer = float.PositiveInfinity;
         value.sortValue = new int[2] { 5, 6 };
         return value;
     }
@@ -66,6 +69,7 @@ public static class Events
         value.title = "Rats just invade";
         value.description = "During your night you felt something nibbling your toes. what was that ? food is also missing... damn rat!";
         value.food = -20;
+        value.timer = float.PositiveInfinity;
         value.sortValue = new int[2] { 1, 2 };
         return value;
     }
@@ -87,6 +91,7 @@ public static class Events
         value.title = "Scurvy is here...";
         value.description = "Damn it, some of your guys just got Scurvy... Maybe they will found some fruits soon";
         value.pv = -30;
+        value.timer = float.PositiveInfinity;
         value.sortValue = new int[2] { 3, 4 };
         return value;
     }
@@ -97,6 +102,7 @@ public static class Events
         value.title = "Scratch!";
         value.description = "You can hear a big and loud noise from the front of your boat. You just crash into something undefined. your boat is not on good condition but you will not sink";
         value.pv = -20;
+        value.timer = float.PositiveInfinity;
         value.sortValue = new int[2] { 5, 6 };
         return value;
     }
@@ -135,6 +141,7 @@ public static class Events
         value.moral = 20;
         value.speed = -40;
         value.pv= -20;
+        value.timer = float.PositiveInfinity;
         value.sortValue = new int[2] { 4, 5 };
         return value;
     }
