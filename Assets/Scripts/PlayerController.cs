@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
         Debug.Assert(m_camera != null);
         m_playerState = GetComponent<PlayerState>();
         m_playerState.InitState(200, 10, 0, 100);
+        m_vignette.material.SetFloat("_Visibility", 0.0f);
+        UserInterface.Instance.m_hudParent.localPosition = Vector3.up * 250;
     }
 
     void Update()
@@ -34,7 +36,17 @@ public class PlayerController : MonoBehaviour
         if (!LevelGenerator.Instance.m_isReady)
             return;
 
-        //m_vignette.material.GetFloat("_Visibility");
+        {
+            float gameVisibility = m_vignette.material.GetFloat("_Visibility");
+            gameVisibility += (1 / 2.0f) * Time.deltaTime;
+            gameVisibility = Mathf.Min(gameVisibility, 1.0f);
+            m_vignette.material.SetFloat("_Visibility", gameVisibility);
+
+            if (gameVisibility >= 0.7f)
+            {
+                UserInterface.Instance.m_hudParent.localPosition = Vector3.Lerp(UserInterface.Instance.m_hudParent.localPosition, Vector3.zero, 0.05f);
+            }
+        }
 
         float deltaTime = Time.deltaTime * GameTime.GameplayTimeScale;
 

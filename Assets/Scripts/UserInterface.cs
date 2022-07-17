@@ -8,6 +8,8 @@ public class UserInterface : MonoBehaviour
 {
     public static UserInterface Instance { get; private set; }
 
+    public RectTransform m_hudParent = null;
+
     public Camera m_cameraMinimap = null;
     public Camera m_cameraDice = null;
 
