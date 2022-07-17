@@ -20,6 +20,24 @@ public static class EventController
         }
     }
 
+    public static IEvent[] GetSixRandomEvents(EVENT_TYPE type)
+    {
+        List<IEvent> list = new();
+        List<IEvent> result = new();
+
+        while (result.Count != 6)
+        {
+            if (list.Count == 0)
+            {
+                list = new List<IEvent>(SelectDefaultEventFromType(type));
+            }
+            int index = Random.Range(0, list.Count);
+            result.Add(list[index]);
+            list.RemoveAt(index);
+        }
+        return result.ToArray();
+    }
+
     public static IEvent GetNewEvent(EVENT_TYPE type, int diceValue)
     {
         IEvent[] defaultList = SelectDefaultEventFromType(type);

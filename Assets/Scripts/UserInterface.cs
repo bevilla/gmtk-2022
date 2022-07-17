@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UserInterface : MonoBehaviour
 {
@@ -23,6 +24,12 @@ public class UserInterface : MonoBehaviour
     public Text m_eventDescription = null;
     public Button m_eventCloseButton = null;
 
+    public Canvas m_dialogGameOverCanvas = null;
+    public Text m_dialogGameOverTreasure = null;
+    public Text m_dialogGameOverTitle = null;
+    public Text m_dialogGameOverDescription = null;
+    public Button m_goToTitleScreenButton = null;
+
     RenderTexture m_renderTextureMinimap = null;
     Texture2D m_textureMinimap = null;
     Rect m_rectMinimap;
@@ -35,6 +42,8 @@ public class UserInterface : MonoBehaviour
     {
         Instance = this;
         m_dialogCanvas.transform.localScale = Vector3.zero;
+        m_dialogGameOverCanvas.transform.localScale = Vector3.zero;
+        m_goToTitleScreenButton.enabled = false;
     }
 
     void Start()
@@ -80,6 +89,21 @@ public class UserInterface : MonoBehaviour
         StartCoroutine(ShowDialogCoroutine(eventType, onEvent));
     }
 
+    public void ShowDialogGameOver(bool success)
+    {
+        if (success)
+        {
+            m_dialogGameOverTitle.text = "Congratulations!";
+            m_dialogGameOverDescription.text = "You have reached your destination!";
+        }
+        else
+        {
+            m_dialogGameOverTitle.text = "Game Over";
+            m_dialogGameOverDescription.text = "Your crew perished in the sea.";
+        }
+        StartCoroutine(ShowDialogGameOverCoroutine());
+    }
+
     IEnumerator ShowDialogCoroutine(EVENT_TYPE eventType, System.Action<IEvent> onEvent)
     {
         GameTime.GameplayTimeScale = 0.0f;
@@ -101,6 +125,8 @@ public class UserInterface : MonoBehaviour
         Dice.Instance.ThrowDice((result) => { diceValue = result; });
         m_imageDice.gameObject.SetActive(true);
 
+        IEvent[] sixEvents = EventController.GetSixRandomEvents(eventType);
+
         Dice.Instance.m_sideIcon1.material.mainTexture = TextureManager.Instance.pirate;
         Dice.Instance.m_sideIcon2.material.mainTexture = TextureManager.Instance.pirate;
         Dice.Instance.m_sideIcon3.material.mainTexture = TextureManager.Instance.pirate;
@@ -113,7 +139,7 @@ public class UserInterface : MonoBehaviour
             yield return null;
         }
 
-        IEvent e = EventController.GetNewEvent(eventType, diceValue);
+        IEvent e = sixEvents[diceValue - 1];
 
         m_eventTitle.gameObject.SetActive(true);
         m_eventDescription.gameObject.SetActive(true);
@@ -157,5 +183,20 @@ public class UserInterface : MonoBehaviour
             GameTime.GameplayTimeScale = 1.0f;
             onEvent(modifiedEvent);
         });
+    }
+
+    IEnumerator ShowDialogGameOverCoroutine()
+    {
+        GameTime.GameplayTimeScale = 0.0f;
+
+        while (m_dialogGameOverCanvas.transform.localScale.x < 1)
+        {
+            m_dialogGameOverCanvas.transform.localScale += Vector3.one * 3.0f * Time.deltaTime;
+            yield return null;
+        }
+        m_dialogGameOverCanvas.transform.localScale = Vector3.one;
+
+        m_goToTitleScreenButton.enabled = true;
+        m_goToTitleScreenButton.onClick.AddListener(() => { SceneManager.LoadScene("Home", LoadSceneMode.Single); });
     }
 }
