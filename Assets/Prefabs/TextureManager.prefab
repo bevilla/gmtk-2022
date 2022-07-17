@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1904199276746321307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1904199276746321306}
+  - component: {fileID: 1904199276746321381}
+  m_Layer: 0
+  m_Name: TextureManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1904199276746321306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904199276746321307}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 546.1992, y: 287.30078, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1904199276746321381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904199276746321307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1287cc4ddbae5d74ea610affb99e8f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pirate: {fileID: 2800000, guid: 78a26db94ead9de44a04d5de5442a0e3, type: 3}
+  heart: {fileID: 2800000, guid: 716323a35250c2d4fba7b98d667c0036, type: 3}
+  rum: {fileID: 2800000, guid: e4c4c8c2b7dbf4ff699f08e527acaa0e, type: 3}
+  food: {fileID: 2800000, guid: 0a9b628b4649a694096fc4255bbbfd31, type: 3}
+  rudder: {fileID: 2800000, guid: 03c2a49d5dbe5d94c878d93024855204, type: 3}
+  wind: {fileID: 2800000, guid: d308d49f2c43e447abe0390509aaa01c, type: 3}
+  castaway: {fileID: 2800000, guid: 05735e11d2ef146ad9e1a3f86fdf2a84, type: 3}
+  wreck: {fileID: 2800000, guid: 1db5abef71f3442349e4aaf3f7baa6c0, type: 3}
+  fight: {fileID: 2800000, guid: 073603e0f85c84db1bfbd884133297b0, type: 3}
+  rats: {fileID: 2800000, guid: d44b4731fff194f6680ef57c85c62105, type: 3}
+  doldrums: {fileID: 2800000, guid: 3dbfca3cfd7d14d7db0fd07847bab4dc, type: 3}
+  scurvy: {fileID: 2800000, guid: 230ce2bfc852d4fdf9147c039aa77ffa, type: 3}
+  OFNI: {fileID: 2800000, guid: 28aca9644ac6441d0881fd2a0a6dd502, type: 3}
+  boxOfFruits: {fileID: 2800000, guid: 41da6a6660684479390414087b041b72, type: 3}
+  shark: {fileID: 2800000, guid: f911c347c39df411d9a9a209504f7835, type: 3}
+  storm: {fileID: 2800000, guid: c05bc1eada6f248a99f31415e27f4d54, type: 3}
+  island: {fileID: 2800000, guid: e28f4482290994ee2b25d16f39138b83, type: 3}
+  tribe: {fileID: 2800000, guid: 5c186de8013f1485c89975b2cd4b82e0, type: 3}
+  outpost: {fileID: 2800000, guid: 303ce336eceae41f4a473c059c4110c0, type: 3}
+  treasure: {fileID: 2800000, guid: 2e10665f158541b43ab6b5d17386f0a2, type: 3}
+  p10: {fileID: 2800000, guid: c84289f82c55a4b44a0a6642ea6c18c3, type: 3}
+  p20: {fileID: 2800000, guid: f44dd3fe13a011648a5b7942e9c1ea35, type: 3}
+  p30: {fileID: 2800000, guid: 1d691d0b09183e541835ca48746f2b36, type: 3}
+  p40: {fileID: 2800000, guid: 3ca82bd762b629642836acb0dd3cb886, type: 3}
+  p50: {fileID: 2800000, guid: 1ac6128fdbe2038498f95bb709d45d0c, type: 3}
+  p60: {fileID: 2800000, guid: 76b7ca2b47858b844986fb48ec4bd9c1, type: 3}
