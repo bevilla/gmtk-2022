@@ -13,6 +13,7 @@ public static class Events
         value.treasure = 10;
         value.sortValue = new int[2] { 1, 2 };
         value.sound = SoundManager.Instance.woodBox;
+        value.icon = TextureManager.Instance.rum;
         return value;
     }
 
@@ -25,6 +26,7 @@ public static class Events
         value.timer = 20;
         value.sortValue = new int[2]{ 3, 4};
         value.sound = SoundManager.Instance.wind;
+        value.icon = TextureManager.Instance.wind;
         return value;
     }
 
@@ -37,6 +39,7 @@ public static class Events
         value.pv = 10;
         value.timer = float.PositiveInfinity;
         value.sound = SoundManager.Instance.humanCry;
+        value.icon = TextureManager.Instance.castaway;
         value.sortValue = new int[2] { 4, 5 };
         return value;
     }
@@ -50,6 +53,7 @@ public static class Events
         value.pv = 10;
         value.timer = float.PositiveInfinity;
         value.sound = SoundManager.Instance.woodWreck;
+        value.icon = TextureManager.Instance.wreck;
         value.sortValue = new int[2] { 5, 6 };
         return value;
     }
@@ -64,6 +68,7 @@ public static class Events
         value.pv = -10;
         value.timer = 20;
         value.sound = SoundManager.Instance.sword;
+        value.icon = TextureManager.Instance.fight;
         value.sortValue = new int[2] { 1, 1 };
         return value;
     }
@@ -76,6 +81,7 @@ public static class Events
         value.food = -20;
         value.timer = float.PositiveInfinity;
         value.sound = SoundManager.Instance.ratStep;
+        value.icon = TextureManager.Instance.rats;
         value.sortValue = new int[2] { 1, 2 };
         return value;
     }
@@ -88,6 +94,7 @@ public static class Events
         value.speed = -10;
         value.timer = 20;
         value.sound = SoundManager.Instance.Doldrums;
+        value.icon = TextureManager.Instance.doldrums;
         value.sortValue = new int[2] { 2, 3 };
         return value;
     }
@@ -100,6 +107,7 @@ public static class Events
         value.pv = -30;
         value.timer = float.PositiveInfinity;
         value.sound = SoundManager.Instance.sickHuman;
+        value.icon = TextureManager.Instance.scurvy;
         value.sortValue = new int[2] { 3, 4 };
         return value;
     }
@@ -112,6 +120,7 @@ public static class Events
         value.pv = -20;
         value.timer = float.PositiveInfinity;
         value.sound = SoundManager.Instance.ofniCrash;
+        value.icon = TextureManager.Instance.OFNI;
         value.sortValue = new int[2] { 5, 6 };
         return value;
     }
@@ -126,6 +135,7 @@ public static class Events
         value.speed = -40;
         value.timer = 20;
         value.sound = SoundManager.Instance.fightPirate;
+        value.icon = TextureManager.Instance.pirate;
         value.sortValue = new int[2] { 1, 2 };
         return value;
     }
@@ -139,6 +149,7 @@ public static class Events
         value.speed = -10;
         value.timer = 20;
         value.sound = SoundManager.Instance.woodBox;
+        value.icon = TextureManager.Instance.boxOfFruits;
         value.sortValue = new int[2] { 2, 3 };
         return value;
     }
@@ -154,6 +165,7 @@ public static class Events
         value.pv= -20;
         value.timer = float.PositiveInfinity;
         value.sound = SoundManager.Instance.sharkDeepSounds;
+        value.icon = TextureManager.Instance.shark;
         value.sortValue = new int[2] { 4, 5 };
         return value;
     }
@@ -168,6 +180,7 @@ public static class Events
         value.speed = 10;
         value.timer = 30;
         value.sound = SoundManager.Instance.thunderWind;
+        value.icon = TextureManager.Instance.storm;
         value.sortValue = new int[2] { 5, 6 };
         return value;
     }
@@ -182,6 +195,7 @@ public static class Events
         value.pv = -10;
         value.food = 30;
         value.sound = SoundManager.Instance.island3;
+        value.icon = TextureManager.Instance.island;
         value.sortValue = new int[2] { 3, 4 };
         return value;
     }
@@ -194,6 +208,7 @@ public static class Events
         value.pv = -15;
         value.food = 20;
         value.sound = SoundManager.Instance.island2;
+        value.icon = TextureManager.Instance.tribe;
         value.sortValue = new int[2] { 1, 2 };
         return value;
     }
@@ -206,6 +221,7 @@ public static class Events
         value.pv = 20;
         value.food = 30;
         value.sound = SoundManager.Instance.island1;
+        value.icon = TextureManager.Instance.outpost;
         value.sortValue = new int[2] { 5, 6 };
         return value;
     }
@@ -217,6 +233,7 @@ public static class Events
         value.description = "You just docked to this island. your guys start to explore it. After few hours they come back with a big chest! Found in a cave on the middle of the island, it contains golds and gems!";
         value.treasure = 40;
         value.sound = SoundManager.Instance.island4;
+        value.icon = TextureManager.Instance.treasure;
         value.sortValue = new int[2] { 6, 6 };
         return value;
     }

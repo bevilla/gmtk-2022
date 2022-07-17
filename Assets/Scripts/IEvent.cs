@@ -11,6 +11,7 @@ public struct IEvent
     public int pv;
     public int[] sortValue;
     public AudioClip sound;
+    public Texture icon;
 }
 
 public enum EVENT_TYPE
