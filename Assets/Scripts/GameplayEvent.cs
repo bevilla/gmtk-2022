@@ -11,6 +11,7 @@ public class GameplayEvent : MonoBehaviour
 
     public GameObject m_ripple;
     public GameObject m_icon;
+    public GameObject m_minimapIcon;
 
     bool m_isProcessed = false;
 
@@ -41,6 +42,17 @@ public class GameplayEvent : MonoBehaviour
                 }
                 if (m_Island)
                 {
+                    if (GetComponentInParent<Island>().m_isStart)
+                    {
+                        m_isProcessed = true;
+                        return;
+                    }
+                    if (GetComponentInParent<Island>().m_isTarget)
+                    {
+                        Debug.Log("GAME OVER!");
+                        m_isProcessed = true;
+                        return;
+                    }
                     eventTypes.Add(EVENT_TYPE.ISLAND);
                 }
                 Debug.Assert(eventTypes.Count > 0);
@@ -50,6 +62,10 @@ public class GameplayEvent : MonoBehaviour
                 if (m_ripple && m_icon)
                 {
                     StartCoroutine(HideEventCoroutine());
+                }
+                if (m_minimapIcon)
+                {
+                    Destroy(m_minimapIcon);
                 }
             }
         }

@@ -6,21 +6,20 @@ public class PlayerState : MonoBehaviour
 {
     private int m_pv;
     private int m_speed;
-    private int m_moral;
+    private int m_treasure;
     private int m_food;
     private List<IEvent> m_currentEvents;
     private List<IEvent> m_pastEvents;
 
     private float m_internalTimer;
     private const int FOOD_CONSUMPTION = 5;
-    private const int MORAL_CONSUMPTION = 5;
     private const int TIMER_CONSUMPTION = 5;
 
     public void InitState(int pv, int speed, int moral, int food)
     {
         m_pv = pv;
         m_speed = speed;
-        m_moral = moral;
+        m_treasure = moral;
         m_food = food;
         m_currentEvents = new();
         m_pastEvents = new();
@@ -33,9 +32,9 @@ public class PlayerState : MonoBehaviour
         return m_pv;
     }
 
-    public int GetMorals()
+    public int GetTreasure()
     {
-        return m_moral;
+        return m_treasure;
     }
 
     public int GetSpeed()
@@ -55,12 +54,12 @@ public class PlayerState : MonoBehaviour
 
     public void AddEvent(IEvent _event)
     {
-        SoundManager.Instance.PlayAudioClip(_event.sound);
         if(_event.timer == float.PositiveInfinity)
         {
             Debug.Log("Event " + _event.title + " is added to historic");
             m_food += _event.food;
             m_pv += _event.pv;
+            m_treasure += _event.treasure;
             m_pastEvents.Add(_event);
         }
         else
@@ -96,8 +95,7 @@ public class PlayerState : MonoBehaviour
         m_internalTimer += Time.deltaTime;
         if(m_internalTimer >= TIMER_CONSUMPTION)
         {
-            Debug.Log("FOOD AND MORAL CONSUMED " + m_moral + " " + m_food);
-            m_moral -= MORAL_CONSUMPTION;
+            Debug.Log("FOOD AND MORAL CONSUMED " + m_treasure + " " + m_food);
             m_food -= FOOD_CONSUMPTION;
             m_internalTimer = 0;
         }
