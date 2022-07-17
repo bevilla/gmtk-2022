@@ -54,12 +54,10 @@ public class PlayerController : MonoBehaviour
         m_camera.transform.position = transform.position + new Vector3(0, 40, -32);
 
         UserInterface.Instance.m_turnRateSlider.value = m_turnRate / m_maxTurnRate;
-        UserInterface.Instance.m_text.text = string.Format("HP: {0}\nMoral: {1}\nFood: {2}\nSpeed: {3}",
-            m_playerState.GetPv(),
-            m_playerState.GetTreasure(),
-            m_playerState.GetFood(),
-            m_playerState.GetSpeed()
-        );
+        UserInterface.Instance.m_textHP.text = m_playerState.GetPv().ToString();
+        UserInterface.Instance.m_textFood.text = m_playerState.GetFood().ToString();
+        UserInterface.Instance.m_textTreasure.text = m_playerState.GetTreasure().ToString();
+        UserInterface.Instance.m_textSpeed.text = m_playerState.GetSpeed().ToString();
     }
 
     public void OnGameplayEvent(EVENT_TYPE[] eventTypes)

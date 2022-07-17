@@ -6,6 +6,13 @@ public class Dice : MonoBehaviour
 {
     public static Dice Instance { get; private set; }
 
+    public MeshRenderer m_sideIcon1;
+    public MeshRenderer m_sideIcon2;
+    public MeshRenderer m_sideIcon3;
+    public MeshRenderer m_sideIcon4;
+    public MeshRenderer m_sideIcon5;
+    public MeshRenderer m_sideIcon6;
+
     public GameObject m_walls;
     public Camera m_diceCamera;
 

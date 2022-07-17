@@ -10,9 +10,13 @@ public class UserInterface : MonoBehaviour
     public Camera m_cameraMinimap = null;
     public Camera m_cameraDice = null;
 
+    public Text m_textHP = null;
+    public Text m_textFood = null;
+    public Text m_textTreasure = null;
+    public Text m_textSpeed = null;
+
     public Image m_imageMinimap = null;
     public Image m_imageDice = null;
-    public Text m_text = null;
     public Slider m_turnRateSlider = null;
     public Canvas m_dialogCanvas = null;
     public Text m_eventTitle = null;
@@ -97,6 +101,13 @@ public class UserInterface : MonoBehaviour
         Dice.Instance.ThrowDice((result) => { diceValue = result; });
         m_imageDice.gameObject.SetActive(true);
 
+        Dice.Instance.m_sideIcon1.material.mainTexture = TextureManager.Instance.pirate;
+        Dice.Instance.m_sideIcon2.material.mainTexture = TextureManager.Instance.pirate;
+        Dice.Instance.m_sideIcon3.material.mainTexture = TextureManager.Instance.pirate;
+        Dice.Instance.m_sideIcon4.material.mainTexture = TextureManager.Instance.pirate;
+        Dice.Instance.m_sideIcon5.material.mainTexture = TextureManager.Instance.pirate;
+        Dice.Instance.m_sideIcon6.material.mainTexture = TextureManager.Instance.pirate;
+
         while (diceValue < 0)
         {
             yield return null;
@@ -111,11 +122,18 @@ public class UserInterface : MonoBehaviour
 
         SoundManager.Instance.PlayAudioClip(e.sound);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.0f);
 
         diceValue = -1;
         Dice.Instance.ThrowDice((result) => { diceValue = result; });
         m_imageDice.gameObject.SetActive(true);
+
+        Dice.Instance.m_sideIcon1.material.mainTexture = TextureManager.Instance.p10;
+        Dice.Instance.m_sideIcon2.material.mainTexture = TextureManager.Instance.p20;
+        Dice.Instance.m_sideIcon3.material.mainTexture = TextureManager.Instance.p30;
+        Dice.Instance.m_sideIcon4.material.mainTexture = TextureManager.Instance.p40;
+        Dice.Instance.m_sideIcon5.material.mainTexture = TextureManager.Instance.p50;
+        Dice.Instance.m_sideIcon6.material.mainTexture = TextureManager.Instance.p60;
 
         while (diceValue < 0)
         {

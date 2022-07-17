@@ -90,7 +90,7 @@ public class PlayerState : MonoBehaviour
             IEvent selectedEvent = m_currentEvents[i];
             if (selectedEvent.timer != float.PositiveInfinity)
             {
-                selectedEvent.timer -= Time.deltaTime;
+                selectedEvent.timer -= Time.deltaTime * GameTime.GameplayTimeScale;
                 m_currentEvents[i] = selectedEvent;
             }
         }
@@ -106,7 +106,7 @@ public class PlayerState : MonoBehaviour
 
     private void UpdateConsummedValue()
     {
-        m_internalTimer += Time.deltaTime;
+        m_internalTimer += Time.deltaTime * GameTime.GameplayTimeScale;
         if(m_internalTimer >= TIMER_CONSUMPTION)
         {
             Debug.Log("FOOD AND MORAL CONSUMED " + m_treasure + " " + m_food);
