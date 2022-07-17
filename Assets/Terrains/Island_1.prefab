@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 631564844167511868}
   - component: {fileID: 631564844167511869}
   - component: {fileID: 631564844167511871}
+  - component: {fileID: 9066060450997617259}
   m_Layer: 7
   m_Name: Terrain
   m_TagString: Untagged
@@ -80,6 +81,17 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 13.1
   m_Center: {x: 16.6, y: 0, z: 13}
+--- !u!154 &9066060450997617259
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631564844167511867}
+  m_Material: {fileID: 0}
+  m_Enabled: 1
+  m_TerrainData: {fileID: 15600000, guid: 17cd3070e84fdfc45ab660b0ca3a17fc, type: 2}
+  m_EnableTreeColliders: 1
 --- !u!1 &7756223820847284910
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +168,7 @@ GameObject:
   - component: {fileID: 4366574652147416757}
   - component: {fileID: 7105040671206868630}
   m_Layer: 0
-  m_Name: Island
+  m_Name: Island_1
   m_TagString: Island
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

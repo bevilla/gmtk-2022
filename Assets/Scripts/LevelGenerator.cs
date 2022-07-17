@@ -14,6 +14,8 @@ public class LevelGenerator : MonoBehaviour
 
     public List<Island> m_islands = new ();
 
+    public bool m_isReady = false;
+
     private void Awake()
     {
         Instance = this;
@@ -26,6 +28,7 @@ public class LevelGenerator : MonoBehaviour
         // Spawn islands
         StartCoroutine(SpawnCoroutine(4, 20, 120, "OceanWall", new GameObject[] { m_island }, new float[] { 1.0f },
             (island) => {
+                island.GetComponentInChildren<TerrainCollider>().enabled = false;
                 m_islands.Add(island.GetComponent<Island>());
             },
             () => {
@@ -73,7 +76,7 @@ public class LevelGenerator : MonoBehaviour
                 // Spawn events
                 GameObject[] events = { m_gameplayEventRed.gameObject, m_gameplayEventGreen.gameObject, m_gameplayEventYellow.gameObject };
                 float[] weights = { 0.1f, 0.4f, 1.0f };
-                StartCoroutine(SpawnCoroutine(10, 10, 35, "", events, weights, (_) => { }, () => { }));
+                StartCoroutine(SpawnCoroutine(10, 10, 35, "", events, weights, (_) => { }, () => { m_isReady = true; }));
             }
         ));
     }

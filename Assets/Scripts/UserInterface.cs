@@ -127,12 +127,12 @@ public class UserInterface : MonoBehaviour
 
         IEvent[] sixEvents = EventController.GetSixRandomEvents(eventType);
 
-        Dice.Instance.m_sideIcon1.material.mainTexture = TextureManager.Instance.pirate;
-        Dice.Instance.m_sideIcon2.material.mainTexture = TextureManager.Instance.pirate;
-        Dice.Instance.m_sideIcon3.material.mainTexture = TextureManager.Instance.pirate;
-        Dice.Instance.m_sideIcon4.material.mainTexture = TextureManager.Instance.pirate;
-        Dice.Instance.m_sideIcon5.material.mainTexture = TextureManager.Instance.pirate;
-        Dice.Instance.m_sideIcon6.material.mainTexture = TextureManager.Instance.pirate;
+        Dice.Instance.m_sideIcon1.material.mainTexture = sixEvents[0].icon;
+        Dice.Instance.m_sideIcon2.material.mainTexture = sixEvents[1].icon;
+        Dice.Instance.m_sideIcon3.material.mainTexture = sixEvents[2].icon;
+        Dice.Instance.m_sideIcon4.material.mainTexture = sixEvents[3].icon;
+        Dice.Instance.m_sideIcon5.material.mainTexture = sixEvents[4].icon;
+        Dice.Instance.m_sideIcon6.material.mainTexture = sixEvents[5].icon;
 
         while (diceValue < 0)
         {

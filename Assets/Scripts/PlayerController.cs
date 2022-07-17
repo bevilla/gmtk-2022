@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance { get; private set; }
 
     public Camera m_camera = null;
+    public MeshRenderer m_vignette = null;
     public float m_maxTurnRate = 4.0f;
     public float m_turnRateStep = 1.0f;
 
@@ -30,6 +31,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (!LevelGenerator.Instance.m_isReady)
+            return;
+
+        //m_vignette.material.GetFloat("_Visibility");
+
         float deltaTime = Time.deltaTime * GameTime.GameplayTimeScale;
 
         float maxSpeed = m_playerState.GetSpeed();
