@@ -85,7 +85,7 @@ public static class Events
         IEvent value = new();
         value.title = "Captain, we're stuck!";
         value.description = "You just enter in the Doldrums, no wind, no wave, nothing... finger cross you will be able to move on soon!";
-        value.speed = -50;
+        value.speed = -10;
         value.timer = 20;
         value.sound = SoundManager.Instance.Doldrums;
         value.sortValue = new int[2] { 2, 3 };
@@ -150,7 +150,7 @@ public static class Events
         value.description = "So the legends are true, we can find some of these legendary creature in the middle of the sea. killing him can be good for you... but irreversible damage can happen";
         value.food = 40;
         value.treasure = 40;
-        value.speed = -40;
+        value.speed = -8;
         value.pv= -20;
         value.timer = float.PositiveInfinity;
         value.sound = SoundManager.Instance.sharkDeepSounds;
@@ -181,7 +181,7 @@ public static class Events
         value.description = "You just arrived in a inhabited island. Nobody is here except pigs, snakesand coconuts... One of your marins just got bitten by a snake. You leave the island with more food!";
         value.pv = -10;
         value.food = 30;
-        value.sound = SoundManager.Instance.thunderWind;
+        value.sound = SoundManager.Instance.island3;
         value.sortValue = new int[2] { 3, 4 };
         return value;
     }
@@ -193,7 +193,7 @@ public static class Events
         value.description ="your raft just touched the beach and you can heard some tribal cry coming from the forest. You are not alone. After 30 minutes the tribe attack you! your guys try to take with them every food supply they found and you let go of the ropes.";
         value.pv = -15;
         value.food = 20;
-        value.sound = SoundManager.Instance.thunderWind;
+        value.sound = SoundManager.Instance.island2;
         value.sortValue = new int[2] { 1, 2 };
         return value;
     }
@@ -205,7 +205,7 @@ public static class Events
         value.description = "You finally arrive to a outpost. you and your guys will be able to have some rest, restock your supply and continue your travel";
         value.pv = 20;
         value.food = 30;
-        value.sound = SoundManager.Instance.thunderWind;
+        value.sound = SoundManager.Instance.island1;
         value.sortValue = new int[2] { 5, 6 };
         return value;
     }
@@ -216,7 +216,7 @@ public static class Events
         value.title = "Treasure!";
         value.description = "You just docked to this island. your guys start to explore it. After few hours they come back with a big chest! Found in a cave on the middle of the island, it contains golds and gems!";
         value.treasure = 40;
-        value.sound = SoundManager.Instance.thunderWind;
+        value.sound = SoundManager.Instance.island4;
         value.sortValue = new int[2] { 6, 6 };
         return value;
     }

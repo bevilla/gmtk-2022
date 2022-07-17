@@ -44,6 +44,10 @@ public class PlayerState : MonoBehaviour
         {
             baseSpeed+= _event.speed;
         }
+        if(baseSpeed < 0)
+        {
+            return 0;
+        }
         return baseSpeed;
     }
 
@@ -52,14 +56,24 @@ public class PlayerState : MonoBehaviour
         return m_food;
     }
 
+    public void ComputeEventBuff(IEvent _event)
+    {
+        Debug.Log("Event " + _event.title + " is added to historic");
+        m_food += _event.food;
+        Debug.Log("food" + m_food + " " + _event.food);
+        m_pv += _event.pv;
+        m_treasure += _event.treasure;
+        if (m_food < 0)
+        {
+            m_food = 0;
+        }
+    }
+
     public void AddEvent(IEvent _event)
     {
-        if(_event.timer == float.PositiveInfinity)
+        ComputeEventBuff(_event);
+        if (_event.timer == float.PositiveInfinity)
         {
-            Debug.Log("Event " + _event.title + " is added to historic");
-            m_food += _event.food;
-            m_pv += _event.pv;
-            m_treasure += _event.treasure;
             m_pastEvents.Add(_event);
         }
         else
@@ -97,6 +111,12 @@ public class PlayerState : MonoBehaviour
         {
             Debug.Log("FOOD AND MORAL CONSUMED " + m_treasure + " " + m_food);
             m_food -= FOOD_CONSUMPTION;
+            if(m_food < 0)
+            {
+                m_food = 0;
+                m_pv -= FOOD_CONSUMPTION;
+            }
+
             m_internalTimer = 0;
         }
     }

@@ -50,8 +50,8 @@ MonoBehaviour:
   wind: {fileID: 8300000, guid: d5110e574301f4161b1d6607d8d91348, type: 3}
   humanCry: {fileID: 8300000, guid: b94c819b8e9804c24bceb60cae7789f4, type: 3}
   glass: {fileID: 8300000, guid: 95c96ebc7d3a34335b910c2622c3ed0b, type: 3}
-  woodWreck: {fileID: 8300000, guid: ddc88c78afca3451dab2359454d3d0b1, type: 3}
-  sword: {fileID: 8300000, guid: ddc88c78afca3451dab2359454d3d0b1, type: 3}
+  woodWreck: {fileID: 8300000, guid: b70c789ee01984516abd0ef01d0ac7fa, type: 3}
+  sword: {fileID: 8300000, guid: 3cb2af89869a14477aa519e9bc6057ee, type: 3}
   ratStep: {fileID: 8300000, guid: 2f5af10d5203b41c7ac50b10e1a59f9d, type: 3}
   Doldrums: {fileID: 8300000, guid: cf5e5960c38074bacb13c303e9585389, type: 3}
   sickHuman: {fileID: 8300000, guid: be67beb5dc8074607bc415229ac04371, type: 3}
