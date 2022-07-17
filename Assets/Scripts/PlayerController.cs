@@ -22,9 +22,10 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        GameTime.GameplayTimeScale = 1.0f;
         Debug.Assert(m_camera != null);
         m_playerState = GetComponent<PlayerState>();
-        m_playerState.InitState(100, 10, 100, 100);
+        m_playerState.InitState(200, 10, 0, 100);
     }
 
     void Update()
@@ -58,6 +59,7 @@ public class PlayerController : MonoBehaviour
         UserInterface.Instance.m_textFood.text = m_playerState.GetFood().ToString();
         UserInterface.Instance.m_textTreasure.text = m_playerState.GetTreasure().ToString();
         UserInterface.Instance.m_textSpeed.text = m_playerState.GetSpeed().ToString();
+        UserInterface.Instance.m_dialogGameOverTreasure.text = "Collected treasures: " + m_playerState.GetTreasure().ToString();
     }
 
     public void OnGameplayEvent(EVENT_TYPE[] eventTypes)

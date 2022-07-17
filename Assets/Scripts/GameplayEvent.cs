@@ -49,7 +49,7 @@ public class GameplayEvent : MonoBehaviour
                     }
                     if (GetComponentInParent<Island>().m_isTarget)
                     {
-                        Debug.Log("GAME OVER!");
+                        UserInterface.Instance.ShowDialogGameOver(true);
                         m_isProcessed = true;
                         return;
                     }
