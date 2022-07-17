@@ -6,6 +6,8 @@ public class LevelGenerator : MonoBehaviour
 {
     public static LevelGenerator Instance { get; private set; }
 
+    public GameObject m_destination;
+    
     public GameObject m_island;
 
     public GameplayEvent m_gameplayEventGreen;
@@ -35,13 +37,7 @@ public class LevelGenerator : MonoBehaviour
                 // Pick target
                 int targetIndex = Random.Range(0, m_islands.Count);
                 m_islands[targetIndex].m_isTarget = true;
-                {
-                    GameObject o = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    o.transform.localScale = Vector3.one * 30.0f;
-                    o.transform.position = m_islands[targetIndex].transform.position + Vector3.up * 10.0f;
-                    o.layer = LayerMask.NameToLayer("Minimap");
-                    o.GetComponent<MeshRenderer>().material.color = Color.red;
-                }
+                Instantiate(m_destination, m_islands[targetIndex].transform);
 
                 // Pick start
                 int startIndex = targetIndex;
@@ -57,13 +53,6 @@ public class LevelGenerator : MonoBehaviour
                     }
                 }
                 m_islands[startIndex].m_isStart = true;
-                {
-                    GameObject o = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    o.transform.localScale = Vector3.one * 30.0f;
-                    o.transform.position = m_islands[startIndex].transform.position + Vector3.up * 10.0f;
-                    o.layer = LayerMask.NameToLayer("Minimap");
-                    o.GetComponent<MeshRenderer>().material.color = Color.blue;
-                }
 
                 // Move player
                 Vector2 dir2 = Random.insideUnitCircle;
