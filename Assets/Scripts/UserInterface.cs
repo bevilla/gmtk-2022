@@ -8,6 +8,8 @@ public class UserInterface : MonoBehaviour
 {
     public static UserInterface Instance { get; private set; }
 
+    public RectTransform m_hudParent = null;
+
     public Camera m_cameraMinimap = null;
     public Camera m_cameraDice = null;
 
@@ -18,7 +20,6 @@ public class UserInterface : MonoBehaviour
 
     public Image m_imageMinimap = null;
     public Image m_imageDice = null;
-    public Slider m_turnRateSlider = null;
     public Canvas m_dialogCanvas = null;
     public Text m_eventTitle = null;
     public Text m_eventDescription = null;

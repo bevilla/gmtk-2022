@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float m_maxTurnRate = 4.0f;
     public float m_turnRateStep = 1.0f;
 
+    public Transform m_turnArrow = null;
+
     PlayerState m_playerState;
 
     float m_speed = 0.0f;
@@ -27,6 +29,8 @@ public class PlayerController : MonoBehaviour
         Debug.Assert(m_camera != null);
         m_playerState = GetComponent<PlayerState>();
         m_playerState.InitState(200, 10, 0, 100);
+        m_vignette.material.SetFloat("_Visibility", 0.0f);
+        UserInterface.Instance.m_hudParent.localPosition = Vector3.up * 250;
     }
 
     void Update()
@@ -34,7 +38,17 @@ public class PlayerController : MonoBehaviour
         if (!LevelGenerator.Instance.m_isReady)
             return;
 
-        //m_vignette.material.GetFloat("_Visibility");
+        {
+            float gameVisibility = m_vignette.material.GetFloat("_Visibility");
+            gameVisibility += (1 / 2.0f) * Time.deltaTime;
+            gameVisibility = Mathf.Min(gameVisibility, 1.0f);
+            m_vignette.material.SetFloat("_Visibility", gameVisibility);
+
+            if (gameVisibility >= 0.7f)
+            {
+                UserInterface.Instance.m_hudParent.localPosition = Vector3.Lerp(UserInterface.Instance.m_hudParent.localPosition, Vector3.zero, 0.05f);
+            }
+        }
 
         float deltaTime = Time.deltaTime * GameTime.GameplayTimeScale;
 
@@ -60,12 +74,18 @@ public class PlayerController : MonoBehaviour
         transform.position += transform.forward * m_speed * deltaTime;
         m_camera.transform.position = transform.position + new Vector3(0, 40, -32);
 
-        UserInterface.Instance.m_turnRateSlider.value = m_turnRate / m_maxTurnRate;
+        m_turnArrow.localRotation = Quaternion.Euler(0.0f, 90 + (m_turnRate / m_maxTurnRate) * 45.0f, 0.0f);
+
         UserInterface.Instance.m_textHP.text = m_playerState.GetPv().ToString();
         UserInterface.Instance.m_textFood.text = m_playerState.GetFood().ToString();
         UserInterface.Instance.m_textTreasure.text = m_playerState.GetTreasure().ToString();
         UserInterface.Instance.m_textSpeed.text = m_playerState.GetSpeed().ToString();
         UserInterface.Instance.m_dialogGameOverTreasure.text = "Collected treasures: " + m_playerState.GetTreasure().ToString();
+
+        if (m_playerState.GetFood() <= 0 || m_playerState.GetPv() <= 0)
+        {
+            UserInterface.Instance.ShowDialogGameOver(false);
+        }
     }
 
     public void OnGameplayEvent(EVENT_TYPE[] eventTypes)

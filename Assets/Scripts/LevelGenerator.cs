@@ -6,14 +6,18 @@ public class LevelGenerator : MonoBehaviour
 {
     public static LevelGenerator Instance { get; private set; }
 
-    public GameObject m_island;
+    public GameObject m_destination;
+    
+    public GameObject[] m_islandPrefabs;
 
     public GameplayEvent m_gameplayEventGreen;
     public GameplayEvent m_gameplayEventYellow;
     public GameplayEvent m_gameplayEventRed;
 
+    [System.NonSerialized]
     public List<Island> m_islands = new ();
 
+    [System.NonSerialized]
     public bool m_isReady = false;
 
     private void Awake()
@@ -26,7 +30,12 @@ public class LevelGenerator : MonoBehaviour
         m_islands.Clear();
 
         // Spawn islands
-        StartCoroutine(SpawnCoroutine(4, 20, 120, "OceanWall", new GameObject[] { m_island }, new float[] { 1.0f },
+        float[] islandWeights = new float[m_islandPrefabs.Length];
+        for (int i = 0; i < m_islandPrefabs.Length; i++)
+        {
+            islandWeights[i] = 1 / (float)m_islandPrefabs.Length;
+        }
+        StartCoroutine(SpawnCoroutine(4, 20, 120, "OceanWall", m_islandPrefabs, islandWeights,
             (island) => {
                 island.GetComponentInChildren<TerrainCollider>().enabled = false;
                 m_islands.Add(island.GetComponent<Island>());
@@ -35,13 +44,7 @@ public class LevelGenerator : MonoBehaviour
                 // Pick target
                 int targetIndex = Random.Range(0, m_islands.Count);
                 m_islands[targetIndex].m_isTarget = true;
-                {
-                    GameObject o = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    o.transform.localScale = Vector3.one * 30.0f;
-                    o.transform.position = m_islands[targetIndex].transform.position + Vector3.up * 10.0f;
-                    o.layer = LayerMask.NameToLayer("Minimap");
-                    o.GetComponent<MeshRenderer>().material.color = Color.red;
-                }
+                Instantiate(m_destination, m_islands[targetIndex].transform);
 
                 // Pick start
                 int startIndex = targetIndex;
@@ -57,13 +60,6 @@ public class LevelGenerator : MonoBehaviour
                     }
                 }
                 m_islands[startIndex].m_isStart = true;
-                {
-                    GameObject o = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    o.transform.localScale = Vector3.one * 30.0f;
-                    o.transform.position = m_islands[startIndex].transform.position + Vector3.up * 10.0f;
-                    o.layer = LayerMask.NameToLayer("Minimap");
-                    o.GetComponent<MeshRenderer>().material.color = Color.blue;
-                }
 
                 // Move player
                 Vector2 dir2 = Random.insideUnitCircle;
