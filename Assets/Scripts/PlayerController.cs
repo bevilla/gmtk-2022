@@ -81,6 +81,11 @@ public class PlayerController : MonoBehaviour
         UserInterface.Instance.m_textTreasure.text = m_playerState.GetTreasure().ToString();
         UserInterface.Instance.m_textSpeed.text = m_playerState.GetSpeed().ToString();
         UserInterface.Instance.m_dialogGameOverTreasure.text = "Collected treasures: " + m_playerState.GetTreasure().ToString();
+
+        if (m_playerState.GetFood() <= 0 || m_playerState.GetPv() <= 0)
+        {
+            UserInterface.Instance.ShowDialogGameOver(false);
+        }
     }
 
     public void OnGameplayEvent(EVENT_TYPE[] eventTypes)
