@@ -55,6 +55,7 @@ public class PlayerState : MonoBehaviour
 
     public void AddEvent(IEvent _event)
     {
+        SoundManager.Instance.PlayAudioClip(_event.sound);
         if(_event.timer == float.PositiveInfinity)
         {
             Debug.Log("Event " + _event.title + " is added to historic");

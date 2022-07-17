@@ -12,6 +12,7 @@ public static class Events
         value.description = "An abbandoned baril full of rum was just fish out by your guys!";
         value.moral = 5;
         value.sortValue = new int[2] { 1, 2 };
+        value.sound = SoundManager.Instance.woodBox;
         return value;
     }
 
@@ -23,6 +24,7 @@ public static class Events
         value.speed = 5;
         value.timer = 20;
         value.sortValue = new int[2]{ 3, 4};
+        value.sound = SoundManager.Instance.wind;
         return value;
     }
 
@@ -33,6 +35,7 @@ public static class Events
         value.description = "You just found a poor Castaway, gain a bonus of moral!";
         value.moral = 10;
         value.timer = float.PositiveInfinity;
+        value.sound = SoundManager.Instance.humanCry;
         value.sortValue = new int[2] { 4, 5 };
         return value;
     }
@@ -45,6 +48,7 @@ public static class Events
         value.description = "An old Wreck is in sight! you can get some good materials for your boat";
         value.pv = 10;
         value.timer = float.PositiveInfinity;
+        value.sound = SoundManager.Instance.woodWreck;
         value.sortValue = new int[2] { 5, 6 };
         return value;
     }
@@ -59,6 +63,7 @@ public static class Events
         value.speed = -15;
         value.pv = -10;
         value.timer = 20;
+        value.sound = SoundManager.Instance.sword;
         value.sortValue = new int[2] { 1, 1 };
         return value;
     }
@@ -70,6 +75,7 @@ public static class Events
         value.description = "During your night you felt something nibbling your toes. what was that ? food is also missing... damn rat!";
         value.food = -20;
         value.timer = float.PositiveInfinity;
+        value.sound = SoundManager.Instance.ratStep;
         value.sortValue = new int[2] { 1, 2 };
         return value;
     }
@@ -81,6 +87,7 @@ public static class Events
         value.description = "You just enter in the Doldrums, no wind, no wave, nothing... finger cross you will be able to move on soon!";
         value.speed = -50;
         value.timer = 20;
+        value.sound = SoundManager.Instance.Doldrums;
         value.sortValue = new int[2] { 2, 3 };
         return value;
     }
@@ -92,6 +99,7 @@ public static class Events
         value.description = "Damn it, some of your guys just got Scurvy... Maybe they will found some fruits soon";
         value.pv = -30;
         value.timer = float.PositiveInfinity;
+        value.sound = SoundManager.Instance.sickHuman;
         value.sortValue = new int[2] { 3, 4 };
         return value;
     }
@@ -103,6 +111,7 @@ public static class Events
         value.description = "You can hear a big and loud noise from the front of your boat. You just crash into something undefined. your boat is not on good condition but you will not sink";
         value.pv = -20;
         value.timer = float.PositiveInfinity;
+        value.sound = SoundManager.Instance.ofniCrash;
         value.sortValue = new int[2] { 5, 6 };
         return value;
     }
@@ -116,6 +125,7 @@ public static class Events
         value.food = 20;
         value.speed = -40;
         value.timer = 20;
+        value.sound = SoundManager.Instance.fightPirate;
         value.sortValue = new int[2] { 1, 2 };
         return value;
     }
@@ -128,6 +138,7 @@ public static class Events
         value.food = 10;
         value.speed = -10;
         value.timer = 20;
+        value.sound = SoundManager.Instance.woodBox;
         value.sortValue = new int[2] { 2, 3 };
         return value;
     }
@@ -142,6 +153,7 @@ public static class Events
         value.speed = -40;
         value.pv= -20;
         value.timer = float.PositiveInfinity;
+        value.sound = SoundManager.Instance.sharkDeepSounds;
         value.sortValue = new int[2] { 4, 5 };
         return value;
     }
@@ -156,6 +168,7 @@ public static class Events
         value.speed = +40;
         value.moral = +10;
         value.timer = 30;
+        value.sound = SoundManager.Instance.thunderWind;
         value.sortValue = new int[2] { 5, 6 };
         return value;
     }

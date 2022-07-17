@@ -7,7 +7,19 @@ public class SoundManager : MonoBehaviour
     public static SoundManager Instance { get; private set; }
 
     public AudioClip thunder;
+    public AudioClip wind;
+    public AudioClip humanCry;
+    public AudioClip glass;
+    public AudioClip woodWreck;
     public AudioClip sword;
+    public AudioClip ratStep;
+    public AudioClip Doldrums;
+    public AudioClip sickHuman;
+    public AudioClip ofniCrash;
+    public AudioClip fightPirate;
+    public AudioClip woodBox;
+    public AudioClip sharkDeepSounds;
+    public AudioClip thunderWind;
 
     AudioSource m_audioSource;
 
@@ -19,6 +31,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayAudioClip(AudioClip audioClip)
     {
+        Debug.Log(audioClip);
         m_audioSource.PlayOneShot(audioClip);
     }
 }

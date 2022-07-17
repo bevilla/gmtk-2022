@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public struct IEvent
 {
     public string title;
@@ -8,6 +10,7 @@ public struct IEvent
     public int food;
     public int pv;
     public int[] sortValue;
+    public AudioClip sound;
 }
 
 public enum EVENT_TYPE
