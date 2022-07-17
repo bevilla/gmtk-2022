@@ -33,7 +33,7 @@ public class LevelGenerator : MonoBehaviour
         float[] islandWeights = new float[m_islandPrefabs.Length];
         for (int i = 0; i < m_islandPrefabs.Length; i++)
         {
-            islandWeights[i] = 1 / (float)m_islandPrefabs.Length;
+            islandWeights[i] = (1 / (float)m_islandPrefabs.Length) * (i + 1);
         }
         StartCoroutine(SpawnCoroutine(4, 20, 120, "OceanWall", m_islandPrefabs, islandWeights,
             (island) => {

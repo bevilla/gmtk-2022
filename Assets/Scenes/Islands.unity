@@ -4413,6 +4413,10 @@ MonoBehaviour:
     type: 3}
   m_islandPrefabs:
   - {fileID: 7895298315230093966, guid: 03ad002078cbe684384ee1dcf13808ac, type: 3}
+  - {fileID: 7895298315230093966, guid: b0c5c911efff44b66ad358036c98ad61, type: 3}
+  - {fileID: 5550456147717704508, guid: 63c10daf1ccf24830a9e960c796f52c6, type: 3}
+  - {fileID: 9055185356567711099, guid: 069b2392c872b4a40b0eceb0077e3210, type: 3}
+  - {fileID: 7895298315230093966, guid: cd4cfaae371bf6244852b65a48b0aa33, type: 3}
   m_gameplayEventGreen: {fileID: 5443133101536044434, guid: e2ca0543f06359648b9c83f805034704,
     type: 3}
   m_gameplayEventYellow: {fileID: 5443133101536044434, guid: 4596dcb45c0dfc94c801c8f2faacb941,

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2246883364688560240}
   - component: {fileID: 4969968279485339185}
   - component: {fileID: 1742640616458188189}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,6 +152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8511520915755583566}
+  - component: {fileID: 3572699024036700504}
   m_Layer: 0
   m_Name: Island_3
   m_TagString: Untagged
@@ -176,3 +177,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3572699024036700504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550456147717704508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40c013276317e74d840ad560312d18d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isTarget: 0
+  m_isStart: 0
