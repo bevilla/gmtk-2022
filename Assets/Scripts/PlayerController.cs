@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float m_maxTurnRate = 4.0f;
     public float m_turnRateStep = 1.0f;
 
+    public Transform m_turnArrow = null;
+
     PlayerState m_playerState;
 
     float m_speed = 0.0f;
@@ -72,7 +74,8 @@ public class PlayerController : MonoBehaviour
         transform.position += transform.forward * m_speed * deltaTime;
         m_camera.transform.position = transform.position + new Vector3(0, 40, -32);
 
-        UserInterface.Instance.m_turnRateSlider.value = m_turnRate / m_maxTurnRate;
+        m_turnArrow.localRotation = Quaternion.Euler(0.0f, 90 + (m_turnRate / m_maxTurnRate) * 45.0f, 0.0f);
+
         UserInterface.Instance.m_textHP.text = m_playerState.GetPv().ToString();
         UserInterface.Instance.m_textFood.text = m_playerState.GetFood().ToString();
         UserInterface.Instance.m_textTreasure.text = m_playerState.GetTreasure().ToString();
