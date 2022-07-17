@@ -6,7 +6,7 @@ public struct IEvent
     public string description;
     public float timer;
     public int speed;
-    public int moral;
+    public int treasure;
     public int food;
     public int pv;
     public int[] sortValue;

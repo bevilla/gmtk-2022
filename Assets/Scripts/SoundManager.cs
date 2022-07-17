@@ -20,18 +20,33 @@ public class SoundManager : MonoBehaviour
     public AudioClip woodBox;
     public AudioClip sharkDeepSounds;
     public AudioClip thunderWind;
+    public AudioClip island1;
+    public AudioClip island2;
+    public AudioClip island3;
+    public AudioClip island4;
 
-    AudioSource m_audioSource;
+    public AudioClip sea;
+
+    AudioSource[] m_audioSource;
 
     void Awake()
     {
         Instance = this;
-        m_audioSource = GetComponent<AudioSource>();
+        m_audioSource = GetComponents<AudioSource>();
+        m_audioSource[1].loop = true;
+    }
+
+    private void Start()
+    {
+        m_audioSource[1].clip = sea ;
+        m_audioSource[1].Play();
+        
     }
 
     public void PlayAudioClip(AudioClip audioClip)
     {
         Debug.Log(audioClip);
-        m_audioSource.PlayOneShot(audioClip);
+        m_audioSource[0].PlayOneShot(audioClip);
     }
+
 }

@@ -60,7 +60,6 @@ public class PlayerState : MonoBehaviour
         {
             Debug.Log("Event " + _event.title + " is added to historic");
             m_food += _event.food;
-            m_moral += _event.moral;
             m_pv += _event.pv;
             m_pastEvents.Add(_event);
         }

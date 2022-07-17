@@ -39,7 +39,7 @@ public static class EventController
         float percentage = 1 + (diceValue / 10.0f);
         selectedEvent.pv = (int)Mathf.Ceil(selectedEvent.pv * percentage);
         selectedEvent.food = (int)Mathf.Ceil(selectedEvent.food * percentage);
-        selectedEvent.moral = (int)Mathf.Ceil(selectedEvent.moral * percentage);
+        selectedEvent.treasure = (int)Mathf.Ceil(selectedEvent.treasure * percentage);
         selectedEvent.speed = (int)Mathf.Ceil(selectedEvent.speed * percentage);
         return selectedEvent;
     }

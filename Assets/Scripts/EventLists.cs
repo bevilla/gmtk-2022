@@ -37,6 +37,11 @@ public static class EventLists
     // ISLAND EVENTS
     public static IEvent[] GetIslandEvents()
     {
-        return new IEvent[] { };
+        return new IEvent[] {
+            Events.UnhabitedIsland(),
+            Events.CannibalHere(),
+            Events.Outpost(),
+            Events.Treasure()
+        };
     }
 } 
